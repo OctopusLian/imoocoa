@@ -34,6 +34,9 @@ public class LoginServlet extends HttpServlet {
         ResponseUtils resp = null;
         try {
             User user = userService.checkLogin(username, password);
+            // 防止黑客软件抓包，因此过滤敏感信息
+            user.setPassword(null);
+            user.setSalt(null);
             resp = new ResponseUtils().put("user",user);
         }catch (Exception e) {
             e.printStackTrace();
