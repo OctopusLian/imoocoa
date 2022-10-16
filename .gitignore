@@ -42,3 +42,5 @@ build/
 *.jpeg
 sql/
 static/
+
+src/webapp/assets/
